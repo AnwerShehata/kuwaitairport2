@@ -285,6 +285,7 @@
         Color colorButton : Colors.blue,
         Color colorIcons : Colors.white,
         IconData  icon : Icons.add_alarm,
+         String fontFamily
         }) {
         return Padding(
         padding: new EdgeInsets.symmetric(horizontal: horizontal , vertical: vertical ),
@@ -295,7 +296,7 @@
         icon: Container(
         height: heightButton,
         child: new Icon(icon,color: colorIcons)),
-        label: Center(child: new Text(textButton , style: TextStyle(fontSize: fontSize),)),
+        label: Center(child: new Text(textButton , style: TextStyle(fontSize: fontSize , fontFamily: fontFamily),)),
         shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.all(new Radius.circular(radiusButton)) ,side: BorderSide(color: colorBorderSide , width: widthBorderSide)),
         textColor: colorText,
         )

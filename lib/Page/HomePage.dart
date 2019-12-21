@@ -1,7 +1,6 @@
   import 'package:flutter/material.dart';
   import 'package:font_awesome_flutter/font_awesome_flutter.dart';
   import 'package:intl/intl.dart';
-
   import '../ToolsApp/StyleApp.dart';
   import '../ToolsApp/WidgetApp.dart';
   import '../Components/My_Drawer.dart';
@@ -10,6 +9,8 @@
   import '../Page/AddTransaction.dart';
   import '../Page/Page_Sectors.dart';
   import '../Page/Page_NewTransaction.dart';
+  import '../Page/Page_PrentFile.dart';
+  import '../Page/Profile.dart';
 
 
 
@@ -54,10 +55,14 @@
 
     DateTime _dateTime = new DateTime.now();
 
-
     final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
     String imagUrl = "";
+
+    // === الانتقال الي صفحة البروفايل  ===
+    void _FunProFile(){
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Profile()),);
+    }
 
     @override
     void initState() {
@@ -165,30 +170,32 @@
                         ],
                       ),
 
-                      new Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
+                      GestureDetector(onTap: (){_FunProFile();},
+                        child: new Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
 
-                          //-------------------- بيانات المستخدم الاسم والوظيفة   ---------------
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: new Stack(
-                              overflow: Overflow.visible,
-                              alignment: Alignment.bottomRight,
-                              children: <Widget>[
-                                new Text("انور شحاتة عبد الزاهر" , style: TextStyle(fontSize: 20 ,color: anWhite),),
-                                Positioned(
-                                    bottom: -16,
-                                    child: new Text("الرقم الوظيفي" , style: TextStyle(fontSize: 15 ,color: anWhite),)),
-                              ],
+                            //-------------------- بيانات المستخدم الاسم والوظيفة   ---------------
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: new Stack(
+                                overflow: Overflow.visible,
+                                alignment: Alignment.bottomRight,
+                                children: <Widget>[
+                                  new Text("انور شحاتة عبد الزاهر" , style: TextStyle(fontSize: 20 ,color: anWhite),),
+                                  Positioned(
+                                      bottom: -16,
+                                      child: new Text("الرقم الوظيفي" , style: TextStyle(fontSize: 15 ,color: anWhite),)),
+                                ],
+                              ),
                             ),
-                          ),
 
-                          //-------------------- صورة المستخدم  ---------------
-                          my_ImageCircleAccount(imagURL: imageUser ,width: 70 , borderColor: anWhite ,borderWidth: 2),
+                            //-------------------- صورة المستخدم  ---------------
+                            my_ImageCircleAccount(imagURL: imageUser ,width: 70 , borderColor: anWhite ,borderWidth: 2),
 
-                        ],),
+                          ],),
+                      ),
 
                     ],
                   ),

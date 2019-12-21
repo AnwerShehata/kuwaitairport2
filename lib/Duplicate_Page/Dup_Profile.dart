@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import '../ToolsApp/StyleApp.dart';
 import '../ToolsApp/WidgetApp.dart';
@@ -8,9 +6,6 @@ import '../Page/Page_General.dart';
 import '../Page/Page_DirectorGeneral.dart';
 import '../Page/Page_files.dart';
 import '../Components/My_Drawer.dart';
-import '../Page/Page_NewTransaction.dart';
-import 'package:image_picker/image_picker.dart';
-
 
 
 class Profile extends StatefulWidget {
@@ -41,58 +36,6 @@ class _BirdState extends State<Profile> {
   }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
-  File _image;
-  Future _ImageGallery() async {
-    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
-    setState(() {
-      Navigator.pop(context,true);
-      _image = image;
-    });
-  }
-
-  Future _ImageCamera() async {
-    var image = await ImagePicker.pickImage(source: ImageSource.camera);
-    setState(() {
-      Navigator.pop(context,true);
-      _image = image;
-    });
-  }
-
-  void _showDialog() {
-    // flutter defined function
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape: Border(bottom: BorderSide(width: 1)),
-          title: Center(child: Column(
-            children: <Widget>[
-              CircleAvatar(child: Icon(Icons.add_a_photo ,size: 50, color: anWhite,) ,maxRadius: 50, backgroundColor: anGray,),
-            Text("تغيير صورة البروفايل   " , style: TextStyle(fontFamily: "Cairo"),)
-            ],
-          ),),
-          content: Container(
-            height: 50,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                my_ButtonIcon(heightButton: 50 ,textButton: "كاميرا" ,fontFamily: "Cairo",
-                icon: Icons.camera_alt , colorButton: anRed ,radiusButton: 10 , onPressed: _ImageCamera , horizontal: 5),
-                my_ButtonIcon(heightButton: 50 ,textButton: "المعرض"  ,fontFamily: "Cairo",
-                    icon: Icons.image , colorButton: anRed ,radiusButton: 10 , onPressed: _ImageGallery),
-              ],
-            ),
-          ),
-          elevation: 10,
-          actions: <Widget>[
-          ],
-        );
-      },
-    );
-  }
-
 
 
   @override
@@ -151,9 +94,7 @@ class _BirdState extends State<Profile> {
 
 
         floatingActionButton: FloatingActionButton(
-          onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Page_NewTransaction()),);
-          },
+          onPressed: (){},
           backgroundColor: anRed,
           child: Icon(Icons.add ,size: 40, color: anWhite,),
           ),
@@ -171,23 +112,10 @@ class _BirdState extends State<Profile> {
               child: new Stack(
                 overflow: Overflow.visible,
                 children: <Widget>[
-
-
-
-                  ClipOval(
-                    child: new SizedBox(
-                      width: 170,
-                      height: 170,
-                      child: (_image!=null)?Image.file(_image, fit: BoxFit.cover):Image.network(
-                        "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  ),
-
+                  my_ImageCircleAccount(width: 150 , imagURL: imageURl , borderColor: anGray),
                   new Positioned(
                     bottom: -5, left: 10,
-                      child: GestureDetector(onTap: (){_showDialog();},
+                      child: GestureDetector(onTap: (){},
                       child: CircleAvatar( backgroundColor: anGrayText, child: Icon(Icons.edit , color: anWhite,))))
                 ],
               ),

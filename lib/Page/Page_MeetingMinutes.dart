@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import '../ToolsApp/StyleApp.dart';
 import '../ToolsApp/WidgetApp.dart';
-
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../Page/HomePage.dart';
+import '../Page/Page_General.dart';
+import '../Page/Page_DirectorGeneral.dart';
+import '../Page/Page_Search.dart';
+import '../Components/My_Drawer.dart';
 
 class Page_MeetingMinutes extends StatefulWidget {
   _BirdState createState() => new _BirdState();
@@ -15,6 +16,7 @@ class _BirdState extends State<Page_MeetingMinutes> {
   String nameMeeting  = 'عنوان المحضر' ;
   String DateMeeting  = '9/10/2020' ;
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
 
   @override
@@ -23,6 +25,9 @@ class _BirdState extends State<Page_MeetingMinutes> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Cairo"),
       home:  new Scaffold(
+
+        key: _scaffoldKey,
+        endDrawer: new My_Drawer(),
 
 
         //------ AppBar ---------------------------------------------------
@@ -33,10 +38,43 @@ class _BirdState extends State<Page_MeetingMinutes> {
           title: Text(" محاضر الاجتماع  "),
           leading: IconButton(icon:Icon(Icons.arrow_back_ios), onPressed: (){ Navigator.pop(context);}),
           actions: <Widget>[
-            new IconButton(icon: Icon(Icons.notifications_active), onPressed: (){}),
-            new IconButton(icon: Icon(Icons.search), onPressed: (){}),
+            new IconButton(icon: Icon(Icons.search), onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Page_Search()),);
+            }),
+            new IconButton(icon: Icon(Icons.menu), onPressed: ()=> _scaffoldKey.currentState.openEndDrawer()),
           ],
         ),
+
+        //====bottomNavigationBar===============================================
+        bottomNavigationBar: BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(icon: Icon(Icons.more_horiz), title: Text('الجهات المعنية')),
+            BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('المدير العام')),
+            BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('الرئيسية')),
+          ],
+          type: BottomNavigationBarType.fixed,      // لاظهار باقي العناصر التي تم اختفائها
+          elevation: 0,
+          backgroundColor: anWhite,
+          onTap: (int tappedIndex){
+            setState(() {
+              switch( tappedIndex){
+
+                case 0 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_DirectorGeneral()),);
+                break;
+
+                case 1 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_General()),);
+                break;
+
+
+                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
+                break;
+
+              }
+            });
+          },
+        ),
+
+
 
         body: ListView(
           children: <Widget>[

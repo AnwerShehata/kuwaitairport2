@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import '../ToolsApp/StyleApp.dart';
 import '../ToolsApp/WidgetApp.dart';
-
+import '../Components/My_Drawer.dart';
+import '../Page/Page_Notifications.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
@@ -23,12 +22,17 @@ class _BirdState extends State<Page_PrentFile> {
     print('Print');
   }
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Cairo"),
       home:  new Scaffold(
+        key: _scaffoldKey,
+        endDrawer: new My_Drawer(),
 
         //------ AppBar ---------------------------------------------------
         appBar: AppBar(
@@ -38,8 +42,10 @@ class _BirdState extends State<Page_PrentFile> {
           title: Text(" مستند المعاملة  "),
           leading: IconButton(icon:Icon(Icons.arrow_back_ios), onPressed: (){ Navigator.pop(context);}),
           actions: <Widget>[
-            new IconButton(icon: Icon(Icons.notifications_active), onPressed: (){}),
-            new IconButton(icon: Icon(Icons.search), onPressed: (){}),
+            new IconButton(icon: Icon(Icons.notifications_active), onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Page_Notifications()),);
+            }),
+            new IconButton(icon: Icon(Icons.menu), onPressed: ()=> _scaffoldKey.currentState.openEndDrawer()),
           ],
         ),
 
