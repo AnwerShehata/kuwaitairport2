@@ -8,11 +8,12 @@ import './Page/Page_Notifications.dart';
 import './Page/Page_Sectors.dart';
 import './Page/Page_files.dart';
 import './Page/Page_NewTransaction.dart';
-import './Page/My_CupertinoDatePicker.dart';
 import './Page/Page_MeetingMinutes.dart';
 import './Page/Page_DirectorGeneral.dart';
 import './Page/Page_PrentFile.dart';
 import './Page/Page_FollowDocument.dart';
+import './Components/NavigationBarHome.dart';
+import './Page/HomePage.dart';
 
 
 void main() => runApp(MyApp());
@@ -31,18 +32,17 @@ class _BirdState extends State<MyApp> {
 
 //      home: splashScreen(),
 //      home: login(),
-      home: HomePage(),
 //      home: AddTransaction(),
 //      home: Profile(),
 //      home: Page_Notifications(),
 //      home: Page_Sectors(),
 //      home: Page_files(),
 //      home: Page_NewTransaction(),
-//      home: My_CupertinoDatePicker(),
 //      home: Page_MeetingMinutes(),
 //      home: Page_DirectorGeneral(),
 //      home: Page_PrentFile(),
 //      home: Page_FollowDocument(),
+      home: NavigationBarHome(),
 
     );
   }

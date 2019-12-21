@@ -6,11 +6,11 @@ import '../ToolsApp/WidgetApp.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Page_DirectorGeneral extends StatefulWidget {
+class Page_General extends StatefulWidget {
   _BirdState createState() => new _BirdState();
 }
 
-class _BirdState extends State<Page_DirectorGeneral> {
+class _BirdState extends State<Page_General> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -37,10 +37,9 @@ class _BirdState extends State<Page_DirectorGeneral> {
 
         body: ListView(
           children: <Widget>[
-
-            //= =========================مكتب رئيس الطيران المدني==
+            //==================================== المدير العام=
             new ExpansionTile(
-              title: Text("مكتب رئيس الطيران المدني ") ,
+              title: Text(" المدير العام  ") ,
               backgroundColor: anWhite,
               children: <Widget>[
 
@@ -54,24 +53,7 @@ class _BirdState extends State<Page_DirectorGeneral> {
 
               ],
             ),
-            new Divider(),
 
-            //========================لجان يترأسها رئيس الطيران المدني=
-            new ExpansionTile(
-              title: Text("لجان يترأسها رئيس الطيران المدني  ") ,
-              backgroundColor: anWhite,
-              children: <Widget>[
-
-                new ExpansionTile(title: Text("إدارة مكتب المدير العام ") ,),
-                new ExpansionTile(title: Text("نائب المدير العام للشئون الادارية والمالية والقانونية ")),
-                new ExpansionTile(title: Text("نائب المدير العام لشئون سلامة الطيران والنقل الجوي")),
-                new ExpansionTile(title: Text("نائب المدير العام لشئون مطار الكويت الدولي")),
-                new ExpansionTile(title: Text("نائب المدير العام لشئون التخطيط والمشاريع")),
-                new ExpansionTile(title: Text("نائب المدير العام لشئون خدمات الملاحة الجوية")),
-
-
-              ],
-            ),
           ],
         ),
 

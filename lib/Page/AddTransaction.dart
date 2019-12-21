@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import '../ToolsApp/StyleApp.dart';
-import '../ToolsApp/WidgetApp.dart';
-import './my_BottomNavigation.dart';
+import '../Components/My_Drawer.dart';
+import '../Page/Page_NewTransaction.dart';
+import '../Page/Page_Search.dart';
+import '../Page/Page_files.dart';
+
+import '../Page/Page_DirectorGeneral.dart';
+import '../Page/Page_General.dart';
+import '../Page/HomePage.dart';
+
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -14,47 +20,40 @@ class AddTransaction extends StatefulWidget {
 class _BirdState extends State<AddTransaction> {
 
   void _FunButtonAdd(){
-    print("_ButtonAdd");
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Page_NewTransaction()),);
   }
 
-  void _FunNotifications(){
-    print("_Notifications");
+  //-------- ز ر فتح  Drawer  ------
+  void _FunOpenEndDrawer(){
+    _scaffoldKey.currentState.openEndDrawer();
   }
 
   void _FunSearch(){
-    print("Search");
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Page_Search()),);
   }
 
+  //--------  رز العود للصفجة السابقة ------
   void _FunBack(){
-    print("Back");
+  Navigator.pop(context);
   }
 
   void _FunImplementation(){
-    print("قيد التنفيذ ");
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Page_files()),);
   }
 
   void _FunStuck(){
-    print(" معلقة ");
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Page_files()),);
   }
 
   void _Fundone(){
-    print(" منجذة ");
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Page_files()),);
   }
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+  int _pageIndex = 1;
 
 
-  List<BottomNavigationBarItem>  _items;
-  String _value = '';
-  int _index = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    _items = new List();
-    _items.add(new BottomNavigationBarItem(icon: Icon(Icons.phone) ,title: Text("المدير العام")));
-    _items.add(new BottomNavigationBarItem(icon: Icon(Icons.shopping_cart) ,title: Text("الجهات المعنية")));
-    _items.add(new BottomNavigationBarItem(icon: Icon(Icons.star) ,title: Text("الرئيسية")));
-  }
 
 
 
@@ -65,109 +64,135 @@ class _BirdState extends State<AddTransaction> {
       theme: ThemeData(fontFamily: "Cairo"),
       home:  new Scaffold(
 
+        key: _scaffoldKey,
+        endDrawer: new My_Drawer(),
+
+
         //====bottomNavigationBar===============================================
         bottomNavigationBar: BottomNavigationBar(
-          items: _items,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(icon: Icon(Icons.more_horiz), title: Text('الجهات المعنية')),
+            BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('المدير العام')),
+            BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('الرئيسية')),
+          ],
           type: BottomNavigationBarType.fixed,      // لاظهار باقي العناصر التي تم اختفائها
-          currentIndex: _index,
-          fixedColor: Colors.blue,
-          onTap: (int item){
+          elevation: 0,
+          backgroundColor: anWhite,
+          onTap: (int tappedIndex){
             setState(() {
-              _index = item;
-              _value = "${_index.toString()}";
-              switch(item){
-              //عند الضغط علي العنصر الاول  الذي يحمل رقم 0 سوف يتم تنفيذ الكود التالي
-                case 0:{setState(() { _value = "Anwar"; });}
+              switch( tappedIndex){
+
+                case 0 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_DirectorGeneral()),);
                 break;
 
-              //عند الضغط علي العنصر الاول  الذي يحمل رقم 1 سوف يتم تنفيذ الكود التالي
-                case 1:{setState(() { _value = "shehata"; });}
+                case 1 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_General()),);
                 break;
 
-              //عند الضغط علي العنصر الاول  الذي يحمل رقم 2 سوف يتم تنفيذ الكود التالي
-                case 2:{setState(() { _value = "Ali"; });}
+
+                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
                 break;
+
               }
             });
           },
         ),
 
-        //====body===============================================
-        body: Container(
-          child: Column(
-            children: <Widget>[
 
-              new Stack(
-                overflow: Overflow.visible,
+
+        //====body===============================================
+        body: Stack(
+          overflow: Overflow.visible,
+          alignment: Alignment.topCenter,
+          children: <Widget>[
+
+            // ============= هنا الــ Container الخاص بالصور   ==================================
+            new Container(
+              height: 290,
+              decoration: BoxDecoration(
+                  color: anRed,
+                  image: DecorationImage(fit: BoxFit.fill, image: AssetImage("asset/Imag/bg.jpg"))
+              ),
+            ),
+
+
+            // ===============================================
+            Padding(
+              padding: const EdgeInsets.only(top: 60 ,left: 10 , right: 10),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
 
-                  //-------- صور المطار --------------------------------
-                  new Container(
-                    height: 300,
-                    decoration: BoxDecoration(
-                        color: anRed,
-                        image: DecorationImage(fit: BoxFit.fill, image: AssetImage("asset/Imag/bg.jpg"))
-                    ),
+                  //---------- penEndDrawer ---------------------------
+                  new IconButton(
+                      icon: Icon(Icons.arrow_back_ios  ,color: anWhite, size: 30,),
+                      onPressed: (){Navigator.pop(context);}
+//                              onPressed: () {},
                   ),
 
-                  //--------------- زر المنيو وزر الاشعارات  ------------------------------
-                  Padding(
-                    padding: const EdgeInsets.only(top: 50 ,left: 20 , right: 20),
-                    child: new Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        
-                        new IconButton(icon: Icon(Icons.arrow_back_ios , color: anWhite,), onPressed:_FunBack),
-                        new Row(
-                          children: <Widget>[
-                            new IconButton(icon: Icon(Icons.notifications_active , color: anWhite, size: 30,), onPressed: _FunNotifications),
-                            new IconButton(icon: Icon(Icons.search , color: anWhite, size: 30,), onPressed: _FunSearch),
-                          ],
-                        )
-                        
-                      ],
-                    ),
+                  //---------- penEndDrawer ---------------------------
+                  new IconButton(
+                      icon: Icon(Icons.menu  ,color: anWhite, size: 30,),
+                      onPressed: () => _scaffoldKey.currentState.openEndDrawer()
+//                              onPressed: () {},
                   ),
 
 
 
-                  Positioned(
-                    top: 260,  right: 30,   left: 30,
-                    child: GestureDetector(onTap: _FunButtonAdd,
-                      child: new Container(
-                        height: 80,
-                        decoration: BoxDecoration(
-                            color: anWhite,
-                            borderRadius: BorderRadius.circular(10) ,
-                            boxShadow: [new BoxShadow(color: Colors.black26, blurRadius: 4.0,),]
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: <Widget>[
-                            new Icon(Icons.add_circle_outline ,size: 50),
-                            new Text("اضافة معاملة جديدة " , style: TextStyle(fontSize: 25),),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                ],
+              ),
+            ),
+
+                Column(
+                children: <Widget>[
+                SizedBox(height: 250),
+                Container(
+                width: MediaQuery.of(context).size.width-10,
+                child: Column(
+                children: <Widget>[
+
+                  _Addfile(context , name: " اضافة معاملة جديد " ,onTap: (){_FunButtonAdd();}),
+
+                SizedBox(height: 50),
+                _ButtonDetector( onTap:(){_FunImplementation();} ,Name: "معاملات قيد التنفيذ"  ,Number: "123", colorShadw: Colors.amber[100] , colortage: anYellow ),
+                _ButtonDetector( onTap:(){_FunStuck();} ,Name: "المعاملات العالقة"  ,Number: "53", colorShadw: Colors.red[100] , colortage: Colors.red ),
+                _ButtonDetector( onTap:(){_Fundone();} ,Name: "المعاملات المنجذة"  ,Number: "324", colorShadw: Colors.green[100] , colortage: anGreen ),
+                ],),),],
+                )
 
 
-                ],),
-              new SizedBox(height: 60),
-
-              _ButtonDetector( onTap:(){_FunImplementation();} ,Name: "معاملات قيد التنفيذ"  ,Number: "123", colorShadw: Colors.amber[100] , colortage: anYellow ),
-              _ButtonDetector( onTap:(){_FunStuck();} ,Name: "المعاملات العالقة"  ,Number: "53", colorShadw: Colors.red[100] , colortage: Colors.red ),
-              _ButtonDetector( onTap:(){_Fundone();} ,Name: "المعاملات المنجذة"  ,Number: "324", colorShadw: Colors.green[100] , colortage: anGreen ),
-
-            ],
-          ),
+          ],
         ),
 
       ),
     );
   }
+
+
+  GestureDetector _Addfile(BuildContext context,{
+    String name = " ",
+    GestureTapCallback  onTap ,
+   }) {
+    return GestureDetector(onTap: onTap,
+                  child: Container(
+                  height: 80,
+                  width: MediaQuery.of(context).size.width-65,
+                  decoration: BoxDecoration(
+                      color: anWhite,
+                      borderRadius: BorderRadius.circular(10) ,
+                      boxShadow: [new BoxShadow(color: Colors.black26, blurRadius: 2.0,),]
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      new Icon(Icons.add ,size: 40),
+                      new Text(name, style: TextStyle(fontSize: 20),),
+                    ],
+                  ),
+              ),
+                );
+  }
+
 
   GestureDetector _ButtonDetector({
     String Name : "حالة المعاملة" ,
@@ -205,4 +230,6 @@ class _BirdState extends State<AddTransaction> {
               ),
             );
   }
+
+
 }
