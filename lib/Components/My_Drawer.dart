@@ -95,6 +95,13 @@ class _BirdState extends State<My_Drawer> {
 
 
             ListTile(
+              title: Text(' محضر اجتماع ' ,style: TextStyle(fontSize: fontSize,color: anGrayText)),
+              leading: Image.asset("asset/Imag/icon1.png" ,width: iconSize,),
+              onTap: () {},
+            ),
+
+
+            ListTile(
               title: Text('  الاشعارات ' ,style: TextStyle(fontSize: fontSize,color: anGrayText)),
               leading: Image.asset("asset/Imag/icon2.png" ,width: iconSize,),
               onTap: () {},

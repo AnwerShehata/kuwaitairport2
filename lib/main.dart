@@ -34,7 +34,7 @@ class _BirdState extends State<MyApp> {
 //      home: splashScreen(),
 //      home: login(),
 //      home: AddTransaction(),
-      home: Profile(),
+//      home: Profile(),
 //      home: Page_Notifications(),
 //      home: Page_Sectors(),
 //      home: Page_files(),
@@ -43,10 +43,9 @@ class _BirdState extends State<MyApp> {
 //      home: Page_DirectorGeneral(),
 //      home: Page_PrentFile(),
 //      home: Page_FollowDocument(),
-//      home: NavigationBarHome(),
+      home: NavigationBarHome(),
 //      home: Page_Search(),
 //      home: HomePage(),
-
     );
   }
 }

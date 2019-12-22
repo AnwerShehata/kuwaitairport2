@@ -6,6 +6,7 @@ import '../Page/Page_General.dart';
 import '../Page/Page_DirectorGeneral.dart';
 import '../Components/My_Drawer.dart';
 import '../Page/Page_Notifications.dart';
+import '../Page/Page_files.dart';
 
 class Page_Sectors extends StatefulWidget {
   _BirdState createState() => new _BirdState();
@@ -15,15 +16,15 @@ class _BirdState extends State<Page_Sectors> {
 
 
   void _FunImplementation(){
-    print("قيد التنفيذ ");
+  Navigator.push(context, MaterialPageRoute(builder: (context)=> Page_files()));
   }
 
   void _FunStuck(){
-    print(" معلقة ");
+    Navigator.push(context, MaterialPageRoute(builder: (context)=> Page_files()));
   }
 
   void _Fundone(){
-    print(" منجذة ");
+    Navigator.push(context, MaterialPageRoute(builder: (context)=> Page_files()));
   }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -92,11 +93,11 @@ class _BirdState extends State<Page_Sectors> {
 
             SizedBox(height: 20),
 
-            _Container(context , onTap: (){} , NameSectors: "التخطيط والمتابعة "  , Number1: "" , Number2: "" , Number3: "" ),
-            _Container(context , onTap: (){} , NameSectors: "سلامة الطيران والنقل الجوي "  , Number1: "" , Number2: "" , Number3: "" ),
-            _Container(context , onTap: (){} , NameSectors: "خدمات الملاحة الجوية"  , Number1: "" , Number2: "" , Number3: "" ),
-            _Container(context , onTap: (){} , NameSectors: "مطار الكويت الدولي"  , Number1: "" , Number2: "" , Number3: "" ),
-            _Container(context , onTap: (){} , NameSectors: "الإدارة والمالية والقانونية"  , Number1: "" , Number2: "" , Number3: "" ),
+            _Container(context , onTap: (){_FunStuck();} , NameSectors: "التخطيط والمتابعة "  , Number1: "55" , Number2: "53" , Number3: "324" ),
+            _Container(context , onTap: (){_FunStuck();} , NameSectors: "سلامة الطيران والنقل الجوي "  , Number1: "" , Number2: "" , Number3: "" ),
+            _Container(context , onTap: (){_FunStuck();} , NameSectors: "خدمات الملاحة الجوية"  , Number1: "" , Number2: "" , Number3: "" ),
+            _Container(context , onTap: (){_FunStuck();} , NameSectors: "مطار الكويت الدولي"  , Number1: "" , Number2: "" , Number3: "" ),
+            _Container(context , onTap: (){_FunStuck();} , NameSectors: "الإدارة والمالية والقانونية"  , Number1: "" , Number2: "" , Number3: "" ),
 
           ],
         ),
