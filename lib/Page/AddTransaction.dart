@@ -4,11 +4,9 @@ import '../Components/My_Drawer.dart';
 import '../Page/Page_NewTransaction.dart';
 import '../Page/Page_Search.dart';
 import '../Page/Page_files.dart';
-
+import '../Components/NavigationBarHome.dart';
 import '../Page/Page_DirectorGeneral.dart';
 import '../Page/Page_General.dart';
-import '../Page/HomePage.dart';
-
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -81,17 +79,14 @@ class _BirdState extends State<AddTransaction> {
           onTap: (int tappedIndex){
             setState(() {
               switch( tappedIndex){
-
                 case 0 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_DirectorGeneral()),);
                 break;
 
                 case 1 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_General()),);
                 break;
 
-
-                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
+                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationBarHome()),);
                 break;
-
               }
             });
           },

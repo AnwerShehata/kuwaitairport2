@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import '../ToolsApp/StyleApp.dart';
-import '../ToolsApp/WidgetApp.dart';
-import '../Page/HomePage.dart';
 import '../Page/Page_General.dart';
 import '../Page/Page_DirectorGeneral.dart';
 import '../Components/My_Drawer.dart';
 import '../Page/Page_Notifications.dart';
 import '../Page/Page_files.dart';
+import '../Components/NavigationBarHome.dart';
+
 
 class Page_Sectors extends StatefulWidget {
   _BirdState createState() => new _BirdState();
@@ -78,7 +78,7 @@ class _BirdState extends State<Page_Sectors> {
                 break;
 
 
-                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
+                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationBarHome()),);
                 break;
 
               }
@@ -123,7 +123,7 @@ class _BirdState extends State<Page_Sectors> {
                 //=== اسم الادارة ==========================
                 GestureDetector(onTap:onTap,
                   child: new Container(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    padding: EdgeInsets.symmetric(horizontal: 20),
                     margin: EdgeInsets.symmetric(horizontal: 20),
                     height: 60,
                     decoration: BoxDecoration(

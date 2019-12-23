@@ -1,15 +1,14 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import '../ToolsApp/StyleApp.dart';
 import '../ToolsApp/WidgetApp.dart';
-import '../Page/HomePage.dart';
 import '../Page/Page_General.dart';
 import '../Page/Page_DirectorGeneral.dart';
 import '../Page/Page_files.dart';
 import '../Components/My_Drawer.dart';
 import '../Page/Page_NewTransaction.dart';
 import 'package:image_picker/image_picker.dart';
+import '../Components/NavigationBarHome.dart';
 
 
 
@@ -140,7 +139,7 @@ class _BirdState extends State<Profile> {
                 break;
 
 
-                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
+                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationBarHome()),);
                 break;
 
               }

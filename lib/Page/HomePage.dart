@@ -11,6 +11,7 @@
   import '../Page/Page_NewTransaction.dart';
   import '../Page/Page_PrentFile.dart';
   import '../Page/Profile.dart';
+  import '../Model/MyData_File.dart';
 
 
 
@@ -48,7 +49,6 @@
     String _number = "9" ;
     String imageUser = 'https://images.pexels.com/photos/2947929/pexels-photo-2947929.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500' ;
 
-
     List<BottomNavigationBarItem>  _items;
     String _value = '';
     int _index = 0;
@@ -63,6 +63,8 @@
     void _FunProFile(){
       Navigator.push(context, MaterialPageRoute(builder: (context) => Profile()),);
     }
+
+
 
     @override
     void initState() {
@@ -183,7 +185,7 @@
                                 overflow: Overflow.visible,
                                 alignment: Alignment.bottomRight,
                                 children: <Widget>[
-                                  new Text("انور شحاتة عبد الزاهر" , style: TextStyle(fontSize: 20 ,color: anWhite),),
+                                  new Text("انورشحاتة عبد الزاهر", style: TextStyle(fontSize: 20 ,color: anWhite),),
                                   Positioned(
                                       bottom: -16,
                                       child: new Text("الرقم الوظيفي" , style: TextStyle(fontSize: 15 ,color: anWhite),)),

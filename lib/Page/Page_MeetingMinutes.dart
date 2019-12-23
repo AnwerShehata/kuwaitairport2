@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import '../ToolsApp/StyleApp.dart';
 import '../ToolsApp/WidgetApp.dart';
-import '../Page/HomePage.dart';
 import '../Page/Page_General.dart';
 import '../Page/Page_DirectorGeneral.dart';
 import '../Page/Page_Search.dart';
 import '../Components/My_Drawer.dart';
+import '../Components/NavigationBarHome.dart';
+
 
 class Page_MeetingMinutes extends StatefulWidget {
   _BirdState createState() => new _BirdState();
@@ -66,7 +67,7 @@ class _BirdState extends State<Page_MeetingMinutes> {
                 break;
 
 
-                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
+                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationBarHome()),);
                 break;
 
               }

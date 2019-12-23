@@ -8,4 +8,10 @@ const anGray = const Color(0xFF535C68);
 const anGrayText = const Color(0xFF0A3D62);
 
 
+const stColors1 = const Color(0xFFDB000F);
+const stColors2 = const Color(0xFFF57D26);
+const stColors3 = const Color(0xFFFFBA36);
+const stColors4 = const Color(0xFFD2DAE2);
+
+
 

@@ -8,11 +8,11 @@ import '../Components/NavigationBarHome.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Page_General extends StatefulWidget {
+class Dup_General extends StatefulWidget {
   _BirdState createState() => new _BirdState();
 }
 
-class _BirdState extends State<Page_General> {
+class _BirdState extends State<Dup_General> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(

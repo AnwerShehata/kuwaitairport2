@@ -3,8 +3,8 @@ import '../ToolsApp/StyleApp.dart';
 import '../ToolsApp/WidgetApp.dart';
 import '../Page/Page_DirectorGeneral.dart';
 import '../Page/Page_General.dart';
-import '../Page/HomePage.dart';
 import '../Components/My_Drawer.dart';
+import '../Components/NavigationBarHome.dart';
 import '../Page/Page_Notifications.dart';
 import '../Page/Page_PrentFile.dart';
 
@@ -12,17 +12,21 @@ import '../Page/Page_PrentFile.dart';
 
 
 class Page_FollowDocument extends StatefulWidget {
+
+  final String NumberFile ;
+  final  String DateFile ;
+  final  String UserName;
+  final  String StatusFile ;
+  final  String TypeFile ;
+  final  String TimeEnd ;
+  final  String JobNumber ;
+
+  const Page_FollowDocument({Key key, this.NumberFile, this.DateFile, this.UserName, this.StatusFile, this.TypeFile, this.TimeEnd ,this.JobNumber}) : super(key: key);
+
   _BirdState createState() => new _BirdState();
 }
 
 class _BirdState extends State<Page_FollowDocument> {
-
-  String _Number = "782632" ;
-  String _DateSend = "3/9/2020" ;
-  String _UserSend = "انور شحاتة عبد الزاهر " ;
-  String _Case = "جازي تنفيذ المعاملة" ;
-  String _TypeCase = "سري" ;
-  String _DateEnd = "7/1/2020" ;
 
   String dropdownValue = "لجنة التخطيط والمتابعة ";
 
@@ -83,7 +87,7 @@ class _BirdState extends State<Page_FollowDocument> {
                 break;
 
 
-                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
+                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationBarHome()),);
                 break;
 
               }
@@ -103,18 +107,13 @@ class _BirdState extends State<Page_FollowDocument> {
               child: new Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
-                  new Text("  رقم المعاملة:    ${_Number}"  , style: TextStyle(fontSize: 17),),
-//                  new Divider(),
-                  new Text("تاريخ رفع المعاملة :    ${_DateSend}"  , style: TextStyle(fontSize: 17),),
-//                  new Divider(),
-                  new Text("القائم برفع المعاملة:    ${_UserSend}" , style: TextStyle(fontSize: 17),),
-//                  new Divider(),
-                  new Text("حالة المعاملة:   ${_Case}"  , style: TextStyle(fontSize: 17),),
-//                  new Divider(),
-                  new Text("نوع المعاملة :    ${_TypeCase}" , style: TextStyle(fontSize: 17),),
-//                  new Divider(),
-                  new Text("الوقتي المتبقي :   ${_DateEnd}" , style: TextStyle(fontSize: 17),),
-//                  new Divider(),
+                  _buildRow(Name: " : القائم برفع المعاملة ",Value: "${widget.UserName}"),
+                  _buildRow(Name: " : الرقم الوظيفي     ",Value: "${widget.JobNumber}"),
+                  _buildRow(Name: " :  رقم المعاملة   ",Value: "${widget.NumberFile}"),
+                  _buildRow(Name: "  : تاريخ رفع المعاملة",Value:"${widget.DateFile}"),
+                  _buildRow(Name: " :  حالة المعاملة   " , Value:"${widget.StatusFile}"),
+                  _buildRow(Name: "   : نوع المعاملة  " , Value:"${widget.TypeFile}"),
+                  _buildRow(Name: " :  الوقتي المتبقي       " , Value:"${widget.TimeEnd}"),
                 ],
               ),
             ),
@@ -173,6 +172,20 @@ class _BirdState extends State<Page_FollowDocument> {
     );
   }
 
+  Row _buildRow({
+    String Name = "" ,
+    String Value  = "",
+   }) {
+    return Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    new Text(Value, style: TextStyle(fontSize: 17, color: anGrayText),),
+                    new Text(Name, style: TextStyle(fontSize: 14 ,color: Colors.black45),),
+                  ],
+                );
+  }
+
   //===== هنا الستة التي تحتوي علي الخطوات
   List<Step> _mySteps(){
     List<Step> _steps = [
@@ -208,6 +221,8 @@ class _BirdState extends State<Page_FollowDocument> {
     ];
     return _steps;
   }
+
+
   Row _TtitleRow() {
     return new Row(
           children: <Widget>[
@@ -245,6 +260,8 @@ class _BirdState extends State<Page_FollowDocument> {
 
         ],);
   }
+
+
   Container _container() {
     return new Container(
           height: 250,  width: MediaQuery.of(context).size.width,

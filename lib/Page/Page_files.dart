@@ -3,10 +3,11 @@
   import '../ToolsApp/WidgetApp.dart';
   import '../Page/Page_DirectorGeneral.dart';
   import '../Page/Page_General.dart';
-  import '../Page/HomePage.dart';
   import '../Page/Page_Search.dart';
   import '../Components/My_Drawer.dart';
   import '../Page/Page_FollowDocument.dart';
+  import '../Model/MyData_File.dart';
+  import '../Components/NavigationBarHome.dart';
 
 
   class Page_files extends StatefulWidget {
@@ -69,7 +70,7 @@
                   break;
 
 
-                  case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
+                  case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationBarHome()),);
                   break;
 
                 }
@@ -79,25 +80,28 @@
 
 
 
-          body: ListView(
-            children: <Widget>[
-
-              _ListContainer(onTap: (){_FunFileDetails();}),
-              _ListContainer(onTap: (){_FunFileDetails();}),
-              _ListContainer(onTap: (){_FunFileDetails();}),
-              _ListContainer(onTap: (){_FunFileDetails();}),
-              _ListContainer(onTap: (){_FunFileDetails();}),
-              _ListContainer(onTap: (){_FunFileDetails();}),
-              _ListContainer(onTap: (){_FunFileDetails();}),
-              _ListContainer(onTap: (){_FunFileDetails();}),
-              _ListContainer(onTap: (){_FunFileDetails();}),
-              _ListContainer(onTap: (){_FunFileDetails();}),
-              _ListContainer(onTap: (){_FunFileDetails();}),
-              _ListContainer(onTap: (){_FunFileDetails();}),
-            ],
-          ),
-
-
+          body:ListView.builder(
+            itemCount: DataKuwaitAirPort.length,
+            itemBuilder: (BuildContext context,int index){
+              return _ListContainer(
+                nameFile: "${DataKuwaitAirPort[index].NameFile}" ,
+                nameSection: "${DataKuwaitAirPort[index].NameSection}",
+               TypeFile: "${DataKuwaitAirPort[index].TypeFile}",
+                colorstatus: DataKuwaitAirPort[index].ColorFile,
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Page_FollowDocument(
+                    NumberFile: DataKuwaitAirPort[index].NumberFile,
+                    DateFile: DataKuwaitAirPort[index].DateFile,
+                    StatusFile:DataKuwaitAirPort[index].StatusFile,
+                    TimeEnd:DataKuwaitAirPort[index].TimeEnd,
+                    TypeFile: DataKuwaitAirPort[index].TypeFile,
+                    UserName: DataKuwaitAirPort[index].UserName,
+                    JobNumber: DataKuwaitAirPort[index].NumberJob,
+                  )),);
+                }
+              );
+            },
+          )
         ),
       );
     }
@@ -105,7 +109,7 @@
     Container _ListContainer({
       String nameFile = "عنوان المعاملة ",
       String nameSection = "اسم الجهة",
-      String  statusTransaction = "",
+      String  TypeFile = "",
       Color colorstatus :anYellow,
       GestureTapCallback onTap,
       }) {
@@ -131,7 +135,7 @@
                   )),
 
                   Expanded(child: new Container( height: 65,
-                  child: Align(alignment: Alignment.center,child: Text("${statusTransaction}" , style: TextStyle(fontSize: 20),)),
+                  child: Align(alignment: Alignment.center,child: Text("${TypeFile}" , style: TextStyle(fontSize: 15),)),
                     decoration: BoxDecoration(
                         color: colorstatus,
                         borderRadius: BorderRadius.circular(15),

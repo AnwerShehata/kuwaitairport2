@@ -8,16 +8,16 @@ import '../Page/Page_files.dart';
 import '../Components/My_Drawer.dart';
 
 
-class Profile extends StatefulWidget {
+class Dup_Profile extends StatefulWidget {
+  final String name;
+  final String imageURl;
+  final String nameSection;
+  final String IDJob;
+  const Dup_Profile({Key key, this.name, this.imageURl, this.nameSection, this.IDJob}) : super(key: key);
   _BirdState createState() => new _BirdState();
 }
 
-class _BirdState extends State<Profile> {
-
-  String imageURl = "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500";
-  String name = "انور شحاتة عبد الزاهر" ;
-  String nameSection = " إدارة التخطيط والمتابعة " ;
-  String IDJob = "768876 " ;
+class _BirdState extends State<Dup_Profile> {
 
   String Number1 = "123" ;
   String Number2 = "987" ;
@@ -93,15 +93,6 @@ class _BirdState extends State<Profile> {
 
 
 
-        floatingActionButton: FloatingActionButton(
-          onPressed: (){},
-          backgroundColor: anRed,
-          child: Icon(Icons.add ,size: 40, color: anWhite,),
-          ),
-
-
-
-
         body: ListView(
           children: <Widget>[
 
@@ -112,7 +103,7 @@ class _BirdState extends State<Profile> {
               child: new Stack(
                 overflow: Overflow.visible,
                 children: <Widget>[
-                  my_ImageCircleAccount(width: 150 , imagURL: imageURl , borderColor: anGray),
+                  my_ImageCircleAccount(width: 150 , imagURL: widget.imageURl , borderColor: anGray),
                   new Positioned(
                     bottom: -5, left: 10,
                       child: GestureDetector(onTap: (){},
@@ -128,9 +119,9 @@ class _BirdState extends State<Profile> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
-                  new Text("الاسم :    ${name}  " ,style: TextStyle(fontSize: 18),),
-                  new Text("الجهة :  ${nameSection}  " ,style: TextStyle(fontSize: 18),),
-                  new Text("الرقم الوظيفي  :  ${IDJob}  " ,style: TextStyle(fontSize: 18),),
+                  new Text("الاسم :    ${widget.name}  " ,style: TextStyle(fontSize: 18),),
+                  new Text("الجهة :  ${widget.nameSection}  " ,style: TextStyle(fontSize: 18),),
+                  new Text("الرقم الوظيفي  :  ${widget.IDJob}  " ,style: TextStyle(fontSize: 18),),
                 ],
               ),
             ),

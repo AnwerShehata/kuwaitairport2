@@ -8,11 +8,11 @@ import '../Components/NavigationBarHome.dart';
 
 
 
-class Page_DirectorGeneral extends StatefulWidget {
+class Dup_DirectorGeneral extends StatefulWidget {
   _BirdState createState() => new _BirdState();
 }
 
-class _BirdState extends State<Page_DirectorGeneral> {
+class _BirdState extends State<Dup_DirectorGeneral> {
 
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -44,36 +44,6 @@ class _BirdState extends State<Page_DirectorGeneral> {
             }),
             new IconButton(icon: Icon(Icons.menu), onPressed: () => _scaffoldKey.currentState.openEndDrawer()),
           ],
-        ),
-
-
-        //====bottomNavigationBar===============================================
-        bottomNavigationBar: BottomNavigationBar(
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.more_horiz), title: Text('الجهات المعنية')),
-            BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('المدير العام')),
-            BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('الرئيسية')),
-          ],
-          type: BottomNavigationBarType.fixed,      // لاظهار باقي العناصر التي تم اختفائها
-          elevation: 0,
-          backgroundColor: anWhite,
-          onTap: (int tappedIndex){
-            setState(() {
-              switch( tappedIndex){
-
-                case 0 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_DirectorGeneral()),);
-                break;
-
-                case 1 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_General()),);
-                break;
-
-
-                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationBarHome()),);
-                break;
-
-              }
-            });
-          },
         ),
 
 
