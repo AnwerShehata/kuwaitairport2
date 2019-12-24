@@ -7,6 +7,7 @@ import '../Components/My_Drawer.dart';
 import '../Model/MyData_File.dart';
 import '../Duplicate_Page/Dup_Profile.dart';
 import '../Components/NavigationBarHome.dart';
+import 'HomePage.dart';
 
 
 
@@ -72,8 +73,7 @@ class _BirdState extends State<Page_Notifications> {
                 break;
                 case 1 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_General()),);
                 break;
-
-                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationBarHome()),);
+                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
                 break;
               }
             });
@@ -139,13 +139,12 @@ class _BirdState extends State<Page_Notifications> {
                   //الرقم الوظيفي - الجهة  ------------------------------------
                   new Column(
                     children: <Widget>[
-                      new Text(" الجهة : ${SectionDwon}" , style: TextStyle(fontSize: 15, color: anGray)),
-                      new Text("الرقم الوظيفي : ${IDjobDwon} ",style: TextStyle(fontSize: 15, color: anGray)),
+                      new Text(" الجهة : ${SectionDwon}" , style: TextStyle(fontSize: 13, color: anGray)),
+                      new Text("الرقم الوظيفي : ${IDjobDwon} ",style: TextStyle(fontSize: 13, color: anGray)),
                     ],
                   ),
 
                   new Container(
-                    height: 100,
                     width: MediaQuery.of(context).size.width,
                     margin: EdgeInsets.symmetric(horizontal: 5 , vertical: 10),
                     padding: EdgeInsets.all(10),
@@ -158,7 +157,7 @@ class _BirdState extends State<Page_Notifications> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
 
-                        Align(alignment: Alignment.topRight,child: new Text("${TextNotification}")),
+                        Align(alignment: Alignment.topRight,child: new Text("${TextNotification}" , style: TextStyle(color: anGrayText),)),
 
                         new Row(
                           mainAxisAlignment: MainAxisAlignment.end,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kuwaitairport/Page/Page_DirectorGeneral.dart';
+import 'package:kuwaitairport/Page/Page_General.dart';
 import '../Page/HomePage.dart';
 import '../ToolsApp/StyleApp.dart';
-import '../Duplicate_Page/Dup_DirectorGeneral.dart';
-import '../Duplicate_Page/Dup_General.dart';
 
 class NavigationBarHome extends StatefulWidget {
   _BirdState createState() => new _BirdState();
@@ -12,9 +12,9 @@ class _BirdState extends State<NavigationBarHome> {
   int _pageIndex = 0;
 
   // هنا الصفحات التي سوف يتم التنقل بينهم عن طريق NavigationBar
-  final Dup_DirectorGeneral _DirectorGeneral = new Dup_DirectorGeneral();
+  final Page_DirectorGeneral _DirectorGeneral = new Page_DirectorGeneral();
   final HomePage _home = new HomePage();
-  final Dup_General _General = new Dup_General();
+  final Page_General _General = new Page_General();
 
   Widget _showpage = new HomePage();
   Widget _pageChooser(int page){

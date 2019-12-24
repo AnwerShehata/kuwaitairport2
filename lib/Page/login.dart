@@ -16,7 +16,7 @@ class _BirdState extends State<login> {
   String user ;
   String pass;
   void _ButtonLogin(){
-    print(_User.toString());
+    Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
   }
 
 

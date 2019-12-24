@@ -3,6 +3,25 @@ import '../ToolsApp/StyleApp.dart';
 import '../ToolsApp/WidgetApp.dart';
 import '../Components/SlideShow.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../Page/HomePage.dart';
+import '../Page/splashScreen.dart';
+import '../Page/login.dart';
+import '../Page/AddTransaction.dart';
+import '../Page/Profile.dart';
+import '../Page/Page_Notifications.dart';
+import '../Page/Page_Sectors.dart';
+import '../Page/Page_files.dart';
+import '../Page/Page_NewTransaction.dart';
+import '../Page/Page_MeetingMinutes.dart';
+import '../Page/Page_DirectorGeneral.dart';
+import '../Page/Page_PrentFile.dart';
+import '../Page/Page_FollowDocument.dart';
+import '../Components/NavigationBarHome.dart';
+import '../Page/HomePage.dart';
+import '../Page/Page_Search.dart';
+import '../Webview/WebOne.dart';
+import '../Webview/WebTow.dart';
+
 
 class My_Drawer extends StatefulWidget {
   _BirdState createState() => new _BirdState();
@@ -52,13 +71,13 @@ class _BirdState extends State<My_Drawer> {
             ListTile(
               title: Text('  موقع الطيران المدني ' ,style: TextStyle(fontSize: fontSize ,color: anGrayText)),
               leading: Icon(FontAwesomeIcons.globeAsia ,color: anGrayText, size: 28),
-              onTap: () {},
+              onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => WebOne()));},
             ),
 
             ListTile(
               title: Text('  اخبارنا ' ,style: TextStyle(fontSize: fontSize ,color: anGrayText)),
               leading:  Icon(FontAwesomeIcons.fileAlt ,color: anGrayText, size: 28),
-              onTap: () {},
+              onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => WebTow()));},
             ),
 
 
@@ -83,38 +102,36 @@ class _BirdState extends State<My_Drawer> {
             ListTile(
               title: Text('  معاملاتي ' ,style: TextStyle(fontSize: fontSize ,color: anGrayText)),
               leading: Image.asset("asset/Imag/icon4.png" ,width: iconSize,),
-              onTap: () {},
+              onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => AddTransaction()),);},
             ),
 
 
             ListTile(
               title: Text('  اضافة معاملة ' ,style: TextStyle(fontSize: fontSize,color: anGrayText)),
               leading: Image.asset("asset/Imag/icon1.png" ,width: iconSize,),
-              onTap: () {},
+              onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => Page_NewTransaction()),);},
             ),
 
 
             ListTile(
               title: Text(' محضر اجتماع ' ,style: TextStyle(fontSize: fontSize,color: anGrayText)),
               leading: Image.asset("asset/Imag/icon1.png" ,width: iconSize,),
-              onTap: () {},
+              onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => Page_MeetingMinutes()),);},
             ),
 
 
             ListTile(
               title: Text('  الاشعارات ' ,style: TextStyle(fontSize: fontSize,color: anGrayText)),
               leading: Image.asset("asset/Imag/icon2.png" ,width: iconSize,),
-              onTap: () {},
+              onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => Page_Notifications()),);},
             ),
 
 
             ListTile(
               title: Text('  تسجيل خروج ' ,style: TextStyle(fontSize: fontSize),),
               leading: Image.asset("asset/Imag/icon3.png" ,width: iconSize,),
-              onTap: () {},
+              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => login()),);},
             ),
-
-
 
 
           ],

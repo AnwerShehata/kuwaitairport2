@@ -1,6 +1,7 @@
   import 'package:flutter/material.dart';
   import 'package:font_awesome_flutter/font_awesome_flutter.dart';
   import 'package:intl/intl.dart';
+import 'package:kuwaitairport/Components/NavigationBarHome.dart';
   import '../ToolsApp/StyleApp.dart';
   import '../ToolsApp/WidgetApp.dart';
   import '../Components/My_Drawer.dart';
@@ -12,6 +13,8 @@
   import '../Page/Page_PrentFile.dart';
   import '../Page/Profile.dart';
   import '../Model/MyData_File.dart';
+import 'Page_DirectorGeneral.dart';
+import 'Page_General.dart';
 
 
 
@@ -88,6 +91,35 @@
 
           key: _scaffoldKey,
           endDrawer: new My_Drawer(),
+
+
+
+          //====bottomNavigationBar===============================================
+          bottomNavigationBar: BottomNavigationBar(
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(icon: Icon(Icons.more_horiz), title: Text('الجهات المعنية')),
+              BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('المدير العام')),
+              BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('الرئيسية')),
+            ],
+            type: BottomNavigationBarType.fixed,      // لاظهار باقي العناصر التي تم اختفائها
+            elevation: 0,
+            backgroundColor: anWhite,
+            onTap: (int tappedIndex){
+              setState(() {
+                switch( tappedIndex){
+                  case 0 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_DirectorGeneral()),);
+                  break;
+
+                  case 1 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_General()),);
+                  break;
+
+                  case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
+                  break;
+                }
+              });
+            },
+          ),
+
 
 
           //Body ===============================================

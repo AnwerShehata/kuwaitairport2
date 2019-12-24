@@ -4,7 +4,7 @@ import '../ToolsApp/WidgetApp.dart';
 import '../Page/Page_General.dart';
 import '../Components/My_Drawer.dart';
 import '../Page/Page_Notifications.dart';
-import '../Components/NavigationBarHome.dart';
+import 'HomePage.dart';
 
 
 
@@ -37,7 +37,8 @@ class _BirdState extends State<Page_DirectorGeneral> {
           elevation: 0,
           centerTitle: true,
           title: Text(" الجهات المعنية "),
-          leading: IconButton(icon:Icon(Icons.arrow_back_ios), onPressed: (){ Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationBarHome()),); }),
+          leading: IconButton(icon:Icon(Icons.arrow_back_ios),
+          onPressed: (){ Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),); }),
           actions: <Widget>[
             new IconButton(icon: Icon(Icons.notifications_active), onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) => Page_Notifications()),);
@@ -60,17 +61,14 @@ class _BirdState extends State<Page_DirectorGeneral> {
           onTap: (int tappedIndex){
             setState(() {
               switch( tappedIndex){
-
                 case 0 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_DirectorGeneral()),);
                 break;
 
                 case 1 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_General()),);
                 break;
 
-
-                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationBarHome()),);
+                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
                 break;
-
               }
             });
           },

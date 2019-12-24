@@ -7,6 +7,7 @@ import '../Components/My_Drawer.dart';
 import '../Components/NavigationBarHome.dart';
 import '../Page/Page_Notifications.dart';
 import '../Page/Page_PrentFile.dart';
+import 'HomePage.dart';
 
 
 
@@ -79,23 +80,18 @@ class _BirdState extends State<Page_FollowDocument> {
           onTap: (int tappedIndex){
             setState(() {
               switch( tappedIndex){
-
                 case 0 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_DirectorGeneral()),);
                 break;
 
                 case 1 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_General()),);
                 break;
 
-
-                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationBarHome()),);
+                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
                 break;
-
               }
             });
           },
         ),
-
-
 
 
         body: ListView(

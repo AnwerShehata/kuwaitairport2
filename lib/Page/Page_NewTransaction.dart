@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../Components/My_Drawer.dart';
 import '../Components/NavigationBarHome.dart';
 import '../Page/Page_Notifications.dart';
+import 'HomePage.dart';
 
 class Page_NewTransaction extends StatefulWidget {
   _BirdState createState() => new _BirdState();
@@ -102,17 +103,14 @@ class _BirdState extends State<Page_NewTransaction> {
           onTap: (int tappedIndex){
             setState(() {
               switch( tappedIndex){
-
                 case 0 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_DirectorGeneral()),);
                 break;
 
                 case 1 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_General()),);
                 break;
 
-
-                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationBarHome()),);
+                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
                 break;
-
               }
             });
           },

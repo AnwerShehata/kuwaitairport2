@@ -15,6 +15,9 @@ import './Page/Page_FollowDocument.dart';
 import './Components/NavigationBarHome.dart';
 import './Page/HomePage.dart';
 import './Page/Page_Search.dart';
+import './Webview/WebOne.dart';
+import './Webview/WebTow.dart';
+import './Page/Page_General.dart';
 
 
 void main() => runApp(MyApp());
@@ -32,20 +35,48 @@ class _BirdState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
 
 //      home: splashScreen(),
-//      home: login(),
+      home: login(),
+
+      //------------ صفحة المعاملات  ---------
 //      home: AddTransaction(),
+
+      //------------ صفحة البروفايل الشخصي  ---------
 //      home: Profile(),
-      home: Page_Notifications(),
+
+      //------------ صفحة الاشعارات   ---------
+//      home: Page_Notifications(),
+
+      //------------ صفحة القطاعات  ---------
 //      home: Page_Sectors(),
+
+      //------------ صفحة المعاملات الماضية  ---------
 //      home: Page_files(),
+
+      //------------ صفحة اضافة معاملة ---------
 //      home: Page_NewTransaction(),
+
+      //------------ صفحة محاضر اجتماع  ---------
 //      home: Page_MeetingMinutes(),
+
+      //------------ صفحة الجهات المعنية ---------
 //      home: Page_DirectorGeneral(),
+
+      //------------ صفحة المدير العام  ---------
+//      home: Page_General(),
+
+      //------------ صفحة بيانات المعاملة ---------
 //      home: Page_PrentFile(),
+
+      //------------ صفحة بيانات المعاملة ---------
 //      home: Page_FollowDocument(),
-//      home: NavigationBarHome(),
+
+      //------------ صفحة البحث  ---------
 //      home: Page_Search(),
+
+      //------------ صفحة الرئيسية ---------
 //      home: HomePage(),
+
+
     );
   }
 }

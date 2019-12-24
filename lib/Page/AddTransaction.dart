@@ -10,6 +10,8 @@ import '../Page/Page_General.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'HomePage.dart';
+
 
 class AddTransaction extends StatefulWidget {
   _BirdState createState() => new _BirdState();
@@ -85,7 +87,7 @@ class _BirdState extends State<AddTransaction> {
                 case 1 : Navigator.push(context, MaterialPageRoute(builder: (context) => Page_General()),);
                 break;
 
-                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationBarHome()),);
+                case 2 : Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
                 break;
               }
             });
