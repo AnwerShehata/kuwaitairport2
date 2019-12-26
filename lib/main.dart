@@ -35,7 +35,7 @@ class _BirdState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
 
 //      home: splashScreen(),
-      home: login(),
+//      home: login(),
 
       //------------ صفحة المعاملات  ---------
 //      home: AddTransaction(),
@@ -74,7 +74,7 @@ class _BirdState extends State<MyApp> {
 //      home: Page_Search(),
 
       //------------ صفحة الرئيسية ---------
-//      home: HomePage(),
+      home: HomePage(),
 
 
     );

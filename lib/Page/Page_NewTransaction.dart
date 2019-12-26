@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 import '../ToolsApp/StyleApp.dart';
 import '../ToolsApp/WidgetApp.dart';
 import '../Page/Page_General.dart';
 import '../Page/Page_DirectorGeneral.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../Components/My_Drawer.dart';
-import '../Components/NavigationBarHome.dart';
 import '../Page/Page_Notifications.dart';
 import 'HomePage.dart';
 
@@ -37,6 +37,8 @@ class _BirdState extends State<Page_NewTransaction> {
     });
   }
 
+
+
   int _NumberDay = 3 ;
 
   void _FunAddDay(){
@@ -48,7 +50,6 @@ class _BirdState extends State<Page_NewTransaction> {
   }
 
     void _FunCamera(){
-    print("  تصوير من الكاميرا  ");
   }
 
     void _FunAddFile(){

@@ -7,9 +7,8 @@ import '../Page/Page_DirectorGeneral.dart';
 import '../Page/Page_files.dart';
 import '../Components/My_Drawer.dart';
 import '../Page/Page_NewTransaction.dart';
-import 'package:image_picker/image_picker.dart';
-import '../Components/NavigationBarHome.dart';
 import 'HomePage.dart';
+import 'package:image_picker/image_picker.dart';
 
 
 
@@ -79,9 +78,9 @@ class _BirdState extends State<Profile> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 my_ButtonIcon(heightButton: 50 ,textButton: "كاميرا" ,fontFamily: "Cairo",
-                icon: Icons.camera_alt , colorButton: anRed ,radiusButton: 10 , onPressed: _ImageCamera , horizontal: 5),
+                icon: Icons.camera_alt , colorButton: anRed ,radiusButton: 10 , onPressed: (){} , horizontal: 5),
                 my_ButtonIcon(heightButton: 50 ,textButton: "المعرض"  ,fontFamily: "Cairo",
-                    icon: Icons.image , colorButton: anRed ,radiusButton: 10 , onPressed: _ImageGallery),
+                    icon: Icons.image , colorButton: anRed ,radiusButton: 10 , onPressed: (){}),
               ],
             ),
           ),
