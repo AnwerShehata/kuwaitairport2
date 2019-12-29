@@ -91,9 +91,7 @@ import 'Page_General.dart';
 
           key: _scaffoldKey,
           endDrawer: new My_Drawer(),
-
-
-
+          
           //====bottomNavigationBar===============================================
           bottomNavigationBar: BottomNavigationBar(
             items: <BottomNavigationBarItem>[
@@ -119,7 +117,6 @@ import 'Page_General.dart';
               });
             },
           ),
-
 
 
           //Body ===============================================

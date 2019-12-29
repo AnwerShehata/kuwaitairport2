@@ -18,6 +18,8 @@ import './Page/Page_Search.dart';
 import './Webview/WebOne.dart';
 import './Webview/WebTow.dart';
 import './Page/Page_General.dart';
+import 'dart:async';
+
 
 
 void main() => runApp(MyApp());
@@ -29,12 +31,14 @@ class MyApp extends StatefulWidget {
 
 
 class _BirdState extends State<MyApp> {
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
 
-//      home: splashScreen(),
+      home: splashScreen(),
+
 //      home: login(),
 
       //------------ صفحة المعاملات  ---------
@@ -74,7 +78,7 @@ class _BirdState extends State<MyApp> {
 //      home: Page_Search(),
 
       //------------ صفحة الرئيسية ---------
-      home: HomePage(),
+//      home: HomePage(),
 
 
     );
