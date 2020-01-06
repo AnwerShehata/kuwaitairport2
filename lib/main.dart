@@ -37,7 +37,7 @@ class _BirdState extends State<MyApp> {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: splashScreen(),
+//      home: splashScreen(),
 
 //      home: login(),
 
@@ -75,7 +75,7 @@ class _BirdState extends State<MyApp> {
 //      home: Page_FollowDocument(),
 
       //------------ صفحة البحث  ---------
-//      home: Page_Search(),
+      home: Page_Search(),
 
       //------------ صفحة الرئيسية ---------
 //      home: HomePage(),

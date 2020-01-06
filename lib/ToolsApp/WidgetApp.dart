@@ -171,7 +171,7 @@
         return new Container(
         padding: EdgeInsets.symmetric(horizontal: horizontal ,vertical: vertical ),
         decoration: new BoxDecoration(
-            color: Colors.grey[100]
+//            color: Colors.grey[100]
         ),
         child: TextField(
         keyboardType: TextInput,

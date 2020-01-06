@@ -9,16 +9,18 @@ class splashScreen extends StatefulWidget {
 class _BirdState extends State<splashScreen> {
 
 
+
   //================ كود Splash Screens=========
   //الانتقال علي الصفحة الرئيسية بعد 5  ثواني -----
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(seconds: 3),(){
+    Future.delayed(Duration(seconds: 6),(){
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()),);
     });
   }
+
 
 
   @override
@@ -32,8 +34,7 @@ class _BirdState extends State<splashScreen> {
           children: <Widget>[
 
             new SizedBox(height: 100),
-            new Image.asset("asset/Imag/logohome.jpg" ,scale: 4,),
-            
+            new Image.asset("asset/Imag/intro.gif"),
           ],
         ),
 

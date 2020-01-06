@@ -15,6 +15,7 @@ import 'package:kuwaitairport/Components/NavigationBarHome.dart';
   import '../Model/MyData_File.dart';
 import 'Page_DirectorGeneral.dart';
 import 'Page_General.dart';
+import '../Components/My_AppBar.dart';
 
 
 
@@ -79,6 +80,14 @@ import 'Page_General.dart';
     }
 
 
+    Widget appBarTitle = InkWell( onTap: (){ print("Home"); }, child: Image.asset("assets/images/logo.png"));
+    Icon actionIcon = new Icon(Icons.search);
+
+    void Function_EditingComplete(){
+
+    }
+
+
     @override
     Widget build(BuildContext context) {
       String _formatteddate = new DateFormat.yMd().format(_dateTime);
@@ -91,7 +100,9 @@ import 'Page_General.dart';
 
           key: _scaffoldKey,
           endDrawer: new My_Drawer(),
-          
+
+
+
           //====bottomNavigationBar===============================================
           bottomNavigationBar: BottomNavigationBar(
             items: <BottomNavigationBarItem>[
@@ -117,6 +128,14 @@ import 'Page_General.dart';
               });
             },
           ),
+
+
+
+
+
+
+
+
 
 
           //Body ===============================================

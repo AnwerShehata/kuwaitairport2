@@ -19,6 +19,7 @@ dependencies:
   intl:
   image_picker:
   webview_flutter: ^0.3.18+1
+  toast: ^0.1.5
 
 
 
@@ -58,6 +59,7 @@ flutter:
     - asset/Imag/icon5.png
     - asset/Imag/icon6.png
     - asset/Imag/icon7.png
+    - asset/Imag/intro.gif
     - asset/Imag/slide/baner1.png
     - asset/Imag/slide/baner2.png
     - asset/Imag/slide/baner3.png
